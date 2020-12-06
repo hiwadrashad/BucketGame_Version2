@@ -276,28 +276,28 @@ namespace Bucket_Opdracht_Version2.DAL
             return true;
         }
 
-        public OilBarrelModel emptyOilBarrel(OilBarrelModel oil)
+        public bool emptyOilBarrel(OilBarrelModel oil)
         {
             oil.CurrentContentValue = 0;
-            return oil;
+            return true;
         }
 
-        public RainBarrelMediumModel emptyMediumRainBarrel(RainBarrelMediumModel mediumbarrel)
+        public bool emptyMediumRainBarrel(RainBarrelMediumModel mediumbarrel)
         {
             mediumbarrel.CurrentContentValue = 0;
-            return mediumbarrel;
+            return true;
         }
 
-        public RainbarrelSmallModel emptySmallMediumRainBarrel(RainbarrelSmallModel smallmodel)
+        public bool emptySmallMediumRainBarrel(RainbarrelSmallModel smallmodel)
         {
             smallmodel.CurrentContentValue = 0;
-            return smallmodel;
+            return true;
         }
 
-        public RainBarrelLargeModel emptyLargeRainBarrel(RainBarrelLargeModel largemodel)
+        public bool emptyLargeRainBarrel(RainBarrelLargeModel largemodel)
         {
             largemodel.CurrentContentValue = 0;
-            return largemodel;
+            return true;
         }
 
         public bool FillBucket(BucketModel bucket)
@@ -306,28 +306,28 @@ namespace Bucket_Opdracht_Version2.DAL
             return true;
         }
 
-        public OilBarrelModel FillOilBarrel(OilBarrelModel oil)
+        public bool FillOilBarrel(OilBarrelModel oil)
         {
             oil.CurrentContentValue = oil.MaxCapacity;
-            return oil;
+            return true;
         }
 
-        public RainBarrelMediumModel FillMediumRainBarrel(RainBarrelMediumModel mediumbarrel)
+        public bool FillMediumRainBarrel(RainBarrelMediumModel mediumbarrel)
         {
             mediumbarrel.CurrentContentValue = mediumbarrel.MaxCapacity;
-            return mediumbarrel;
+            return true;
         }
 
-        public RainbarrelSmallModel FillSmallMediumRainBarrel(RainbarrelSmallModel smallmodel)
+        public bool FillSmallMediumRainBarrel(RainbarrelSmallModel smallmodel)
         {
             smallmodel.CurrentContentValue = smallmodel.MaxCapacity;
-            return smallmodel;
+            return true;
         }
 
-        public RainBarrelLargeModel FillLargeRainBarrel(RainBarrelLargeModel largemodel)
+        public bool FillLargeRainBarrel(RainBarrelLargeModel largemodel)
         {
             largemodel.CurrentContentValue = largemodel.MaxCapacity;
-            return largemodel;
+            return true;
         }
 
 #nullable enable

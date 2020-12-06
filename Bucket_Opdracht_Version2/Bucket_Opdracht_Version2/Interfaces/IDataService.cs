@@ -15,15 +15,15 @@ namespace Bucket_Opdracht_Version2.Interfaces
         public bool AddSmallRainBarrelToContainer(RainbarrelSmallModel smallbarrel);
         public bool AddLargeRainBarrelToContainer(RainBarrelLargeModel largeModel);
         public bool emptyBucket(BucketModel bucket);
-        public OilBarrelModel emptyOilBarrel(OilBarrelModel oil);
-        public RainBarrelMediumModel emptyMediumRainBarrel(RainBarrelMediumModel mediumbarrel);
-        public RainbarrelSmallModel emptySmallMediumRainBarrel(RainbarrelSmallModel smallmodel);
-        public RainBarrelLargeModel emptyLargeRainBarrel(RainBarrelLargeModel largemodel);
+        public bool emptyOilBarrel(OilBarrelModel oil);
+        public bool emptyMediumRainBarrel(RainBarrelMediumModel mediumbarrel);
+        public bool emptySmallMediumRainBarrel(RainbarrelSmallModel smallmodel);
+        public bool emptyLargeRainBarrel(RainBarrelLargeModel largemodel);
         public bool FillBucket(BucketModel bucket);
-        public OilBarrelModel FillOilBarrel(OilBarrelModel oil);
-        public RainBarrelMediumModel FillMediumRainBarrel(RainBarrelMediumModel mediumbarrel);
-        public RainbarrelSmallModel FillSmallMediumRainBarrel(RainbarrelSmallModel smallmodel);
-        public RainBarrelLargeModel FillLargeRainBarrel(RainBarrelLargeModel largemodel);
+        public bool FillOilBarrel(OilBarrelModel oil);
+        public bool FillMediumRainBarrel(RainBarrelMediumModel mediumbarrel);
+        public bool FillSmallMediumRainBarrel(RainbarrelSmallModel smallmodel);
+        public bool FillLargeRainBarrel(RainBarrelLargeModel largemodel);
 #nullable enable
         public ContainerModel? chooseContainer();
 #nullable disable

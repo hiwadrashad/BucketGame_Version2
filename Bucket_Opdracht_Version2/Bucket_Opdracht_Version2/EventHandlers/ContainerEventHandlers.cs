@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Bucket_Opdracht_Version2.DAL;
+using Bucket_Opdracht_Version2.Interfaces;
+using Bucket_Opdracht_Version2.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Security.Cryptography.X509Certificates;
@@ -9,22 +12,38 @@ namespace Bucket_Opdracht_Version2.EventHandlers
     public class ContainerEventHandlers
     {
 
-        public delegate void ExecutionDelegate();
+        private IDataService _dataService = MockDataService.GetMockDataService();
 
-        public event ExecutionDelegate ExecutionEventHandler;
-        //public event EventHandler Treshhodl;
+        public delegate bool TransformDelegate();
 
-        //public void execute()
-        //{
-        //    EventHandler handler = Treshhodl;
-        //    handler?.Invoke(this,)
-        //}
-        //public delegate void Add(int something);
-        //public void ContainerEventHandler()
-        ////{
-        ////    usethissomething obj = new usethissomething(Test);
-        ////    obj.Invoke(12);
-        //}
+        public event TransformDelegate TransformEventHandler;
+
+#nullable enable
+        public delegate ContainerModel? ChooseDelegate();
+#nullable disable
+
+        public event ChooseDelegate ChooseEventHandler;
+
+        public ContainerEventHandlers item = new ContainerEventHandlers();
+
+        public void AddContainer()
+        {
+            var item2 = new TransformDelegate(_dataService.AddContainer);
+            item.TransformEventHandler += item2;
+            item.TransformEventHandler();
+            item.TransformEventHandler -= item2;
+        }
+
+#nullable enable
+
+        public ContainerModel? ChooseContainer()
+        {
+            var item2 = new ChooseDelegate(_dataService.chooseContainer);
+            item.ChooseEventHandler += item2;
+            var returnvalue = item.ChooseEventHandler();
+            item.ChooseEventHandler -= item2;
+            return returnvalue;
+        }
 
     }
 }

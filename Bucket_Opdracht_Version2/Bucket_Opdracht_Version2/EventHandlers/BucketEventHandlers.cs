@@ -12,34 +12,51 @@ namespace Bucket_Opdracht_Version2.EventHandlers
     {
         private IDataService _dataService = MockDataService.GetMockDataService();
 
-        public delegate bool AddBucketDelegate(BucketModel model);
+        public delegate bool TransformDelegate(BucketModel model);
 
-        public event AddBucketDelegate AddBucketEventHandler;
+        public event TransformDelegate TransformEventHandler;
+
+#nullable enable
+        public delegate BucketModel? ChooseDelegate();
+#nullable disable
+
+        public event ChooseDelegate ChooseEventHandler;
 
         public BucketEventHandlers item = new BucketEventHandlers();
 
         public void AddBucket()
         {           
-            var item2 = new AddBucketDelegate(_dataService.AddBucketToContainer);
-            item.AddBucketEventHandler += item2;
-            item.AddBucketEventHandler(BucketExecutions.GenerateBucket());
-            item.AddBucketEventHandler -= item2;
+            var item2 = new TransformDelegate(_dataService.AddBucketToContainer);
+            item.TransformEventHandler += item2;
+            item.TransformEventHandler(BucketExecutions.GenerateBucket());
+            item.TransformEventHandler -= item2;
         }
 
         public void EmptyBucket(BucketModel model)
         {
-            var item2 = new AddBucketDelegate(_dataService.emptyBucket);
-            item.AddBucketEventHandler += item2;
-            item.AddBucketEventHandler(model);
-            item.AddBucketEventHandler -= item2;
+            var item2 = new TransformDelegate(_dataService.emptyBucket);
+            item.TransformEventHandler += item2;
+            item.TransformEventHandler(model);
+            item.TransformEventHandler -= item2;
         }
 
         public void FillBucket(BucketModel model)
         {
-            var item2 = new AddBucketDelegate(_dataService.FillBucket);
-            item.AddBucketEventHandler += item2;
-            item.AddBucketEventHandler(model);
-            item.AddBucketEventHandler -= item2;
+            var item2 = new TransformDelegate(_dataService.FillBucket);
+            item.TransformEventHandler += item2;
+            item.TransformEventHandler(model);
+            item.TransformEventHandler -= item2;
+        }
+
+#nullable enable
+
+        public BucketModel? ChooseBucket()
+        {
+            var item2 = new ChooseDelegate(_dataService.chooseBucket);
+            item.ChooseEventHandler += item2;
+            var returnvalue = item.ChooseEventHandler();
+            item.ChooseEventHandler -= item2;
+            return returnvalue;
         }
     }
 }
