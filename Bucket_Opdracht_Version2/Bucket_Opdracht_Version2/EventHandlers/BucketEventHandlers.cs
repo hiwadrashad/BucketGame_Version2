@@ -2,6 +2,7 @@
 using Bucket_Opdracht_Version2.Interfaces;
 using Bucket_Opdracht_Version2.MainFunctions;
 using Bucket_Opdracht_Version2.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,10 +23,24 @@ namespace Bucket_Opdracht_Version2.EventHandlers
 
         public event ChooseDelegate ChooseEventHandler;
 
-        public BucketEventHandlers item = new BucketEventHandlers();
+        public BucketEventHandlers item;
 
+        public BucketEventHandlers(BucketEventHandlers initmodel)
+        {
+            item = initmodel;
+        }
+
+        public BucketEventHandlers()
+        {
+                
+        }
+
+        public void test()
+        {
+            Console.WriteLine("this works");
+        }
         public void AddBucket()
-        {           
+        {
             var item2 = new TransformDelegate(_dataService.AddBucketToContainer);
             item.TransformEventHandler += item2;
             item.TransformEventHandler(BucketExecutions.GenerateBucket());

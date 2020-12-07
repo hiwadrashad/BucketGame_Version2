@@ -1,5 +1,7 @@
 ﻿using Bucket_Opdracht_Version2.DAL;
 using Bucket_Opdracht_Version2.EventHandlers;
+using Bucket_Opdracht_Version2.Interfaces;
+using Bucket_Opdracht_Version2.MainFunctions;
 using Bucket_Opdracht_Version2.StaticResources;
 using System;
 using System.Reflection;
@@ -23,6 +25,7 @@ namespace Bucket_Opdracht_Version2
             //program.Something += new MyEventHandler(program.DoSomething);
             //program.Something -= new MyEventHandler(program.DoSomething);
             //program.Something();
+            //IDataService item = MockDataService.GetMockDataService();
         
             Console.WriteLine(@"\______   \__ __   ____ |  | __ _____/  |_   /  _____/_____    _____   ____  ");
             Console.WriteLine(@" |    |  _/  |  \_/ ___\|  |/ // __ \   __\ /   \  ___\__  \  /     \_/ __ \ ");
@@ -31,8 +34,9 @@ namespace Bucket_Opdracht_Version2
             Console.WriteLine(@"       \/            \/     \/    \/               \/     \/      \/     \/ ");
             Console.WriteLine(" ");
             Console.WriteLine("Generating a bucket");
+            BucketEventHandlers iem = new BucketEventHandlers(new BucketEventHandlers());
+            iem.AddBucket();
 
-           
         }
     }
 }

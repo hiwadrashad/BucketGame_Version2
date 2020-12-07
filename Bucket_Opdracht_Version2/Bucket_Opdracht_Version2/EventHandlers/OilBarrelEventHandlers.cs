@@ -22,8 +22,17 @@ namespace Bucket_Opdracht_Version2.EventHandlers
 
         public event ChooseDelegate ChooseEventHandler;
 
-        public OilBarrelEventHandlers item = new OilBarrelEventHandlers();
+        public OilBarrelEventHandlers item;
 
+        public OilBarrelEventHandlers(OilBarrelEventHandlers initmodel)
+        {
+            item = initmodel;
+        }
+
+        public OilBarrelEventHandlers()
+        {
+
+        }
         public void AddOilBarrel()
         {
             var item2 = new TransformDelegate(_dataService.AddOilBarrelToContainer);

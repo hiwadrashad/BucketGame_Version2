@@ -68,8 +68,10 @@ namespace Bucket_Opdracht_Version2.DAL
                     }
                 };
                 StaticResources.CurrentStaticContainer.currentContainer = item;
-                _containers.Add(item); 
-        
+                _containers.Add(item);
+                Console.WriteLine("Bucket and container added");
+
+
             }
             foreach (var item in _containers)
             {
@@ -80,17 +82,21 @@ namespace Bucket_Opdracht_Version2.DAL
                         item.BucketsStoredInsideThisContainer.Add(bucket);
                         item.CurrentContentValue = bucket.MaxCapacity;
                         found = true;
+                        Console.WriteLine("Bucket added");
                     }
                 }
             }
             if (found == false)
             {
                 ContainerModel item = new ContainerModel();
+                ContainerAbstractionStructure.containers = new List<ContainerModel>();
                 ContainerAbstractionStructure.containers.Add(item);
                 item.id = Guid.NewGuid().ToString();
+                item.BucketsStoredInsideThisContainer = new List<BucketModel>();
                 item.BucketsStoredInsideThisContainer.Add(bucket);
                 item.CurrentContentValue = bucket.MaxCapacity;
                 _containers.Add(item);
+                Console.WriteLine("Bucket and container added");
             }
 
             return true;
@@ -112,6 +118,7 @@ namespace Bucket_Opdracht_Version2.DAL
                 };
                 StaticResources.CurrentStaticContainer.currentContainer = item;
                 _containers.Add(item);
+                Console.WriteLine("OilBarrel and container added");
 
             }
             foreach (var item in _containers)
@@ -123,17 +130,21 @@ namespace Bucket_Opdracht_Version2.DAL
                         item.OilBarrelsStoredInsideThisContainer.Add(oilbarrel);
                         item.CurrentContentValue = oilbarrel.MaxCapacity;
                         found = true;
+                        Console.WriteLine("OilBarrel added");
                     }
                 }
             }
             if (found == false)
             {
                 ContainerModel item = new ContainerModel();
+                ContainerAbstractionStructure.containers = new List<ContainerModel>();
                 ContainerAbstractionStructure.containers.Add(item);
                 item.id = Guid.NewGuid().ToString();
+                item.OilBarrelsStoredInsideThisContainer = new List<OilBarrelModel>();
                 item.OilBarrelsStoredInsideThisContainer.Add(oilbarrel);
                 item.CurrentContentValue = oilbarrel.MaxCapacity;
                 _containers.Add(item);
+                Console.WriteLine("OilBarrel and container added");
             }
 
             return true;
@@ -155,6 +166,7 @@ namespace Bucket_Opdracht_Version2.DAL
                 };
                 StaticResources.CurrentStaticContainer.currentContainer = item;
                 _containers.Add(item);
+                Console.WriteLine("Medium rainbarrel and container added");
 
             }
             foreach (var item in _containers)
@@ -166,17 +178,21 @@ namespace Bucket_Opdracht_Version2.DAL
                         item.MediumRainBarrelsStoredInsideThisContainer.Add(mediumbarrel);
                         item.CurrentContentValue = mediumbarrel.MaxCapacity;
                         found = true;
+                        Console.WriteLine("Medium rainbarrel added");
                     }
                 }
             }
             if (found == false)
             {
                 ContainerModel item = new ContainerModel();
+                ContainerAbstractionStructure.containers = new List<ContainerModel>();
                 ContainerAbstractionStructure.containers.Add(item);
                 item.id = Guid.NewGuid().ToString();
+                item.MediumRainBarrelsStoredInsideThisContainer = new List<RainBarrelMediumModel>();
                 item.MediumRainBarrelsStoredInsideThisContainer.Add(mediumbarrel);
                 item.CurrentContentValue = mediumbarrel.MaxCapacity;
                 _containers.Add(item);
+                Console.WriteLine("Medium rainbarrel and container added");
             }
 
             return true;
@@ -199,6 +215,8 @@ namespace Bucket_Opdracht_Version2.DAL
                 };
                 StaticResources.CurrentStaticContainer.currentContainer = item;
                 _containers.Add(item);
+                Console.WriteLine("Small rainbarrel and container added");
+
 
             }
             foreach (var item in _containers)
@@ -210,17 +228,21 @@ namespace Bucket_Opdracht_Version2.DAL
                         item.SmallRainBarrelsStoredInsideThisContainer.Add(smallbarrel);
                         item.CurrentContentValue = smallbarrel.MaxCapacity;
                         found = true;
+                        Console.WriteLine("Small rainbarrel added");
                     }
                 }
             }
             if (found == false)
             {
                 ContainerModel item = new ContainerModel();
+                ContainerAbstractionStructure.containers = new List<ContainerModel>();
                 ContainerAbstractionStructure.containers.Add(item);
                 item.id = Guid.NewGuid().ToString();
+                item.SmallRainBarrelsStoredInsideThisContainer = new List<RainbarrelSmallModel>();
                 item.SmallRainBarrelsStoredInsideThisContainer.Add(smallbarrel);
                 item.CurrentContentValue = smallbarrel.MaxCapacity;
                 _containers.Add(item);
+                Console.WriteLine("Medium rainbarrel and container added");
             }
 
             return true;
@@ -243,6 +265,7 @@ namespace Bucket_Opdracht_Version2.DAL
                 };
                 StaticResources.CurrentStaticContainer.currentContainer = item;
                 _containers.Add(item);
+                Console.WriteLine("Large rainbarrel and container added");
 
             }
             foreach (var item in _containers)
@@ -254,17 +277,21 @@ namespace Bucket_Opdracht_Version2.DAL
                         item.LargeRainBarrelsStoredInsideThisContainer.Add(largeModel);
                         item.CurrentContentValue = largeModel.MaxCapacity;
                         found = true;
+                        Console.WriteLine("Large rainbarrel added");
                     }
                 }
             }
             if (found == false)
             {
                 ContainerModel item = new ContainerModel();
+                ContainerAbstractionStructure.containers = new List<ContainerModel>();
                 ContainerAbstractionStructure.containers.Add(item);
                 item.id = Guid.NewGuid().ToString();
+                item.LargeRainBarrelsStoredInsideThisContainer = new List<RainBarrelLargeModel>();
                 item.LargeRainBarrelsStoredInsideThisContainer.Add(largeModel);
                 item.CurrentContentValue = largeModel.MaxCapacity;
                 _containers.Add(item);
+                Console.WriteLine("Large rainbarrel and container added");
             }
 
             return true;
@@ -273,60 +300,70 @@ namespace Bucket_Opdracht_Version2.DAL
         public bool emptyBucket(BucketModel bucket)
         {
             bucket.CurrentContentValue = 0;
+            Console.WriteLine("Bucket emptied");
             return true;
         }
 
         public bool emptyOilBarrel(OilBarrelModel oil)
         {
             oil.CurrentContentValue = 0;
+            Console.WriteLine("OilBarrel emptied");
             return true;
         }
 
         public bool emptyMediumRainBarrel(RainBarrelMediumModel mediumbarrel)
         {
             mediumbarrel.CurrentContentValue = 0;
+            Console.WriteLine("Medium rainbarrel emptied");
             return true;
         }
 
-        public bool emptySmallMediumRainBarrel(RainbarrelSmallModel smallmodel)
+        public bool emptySmallRainBarrel(RainbarrelSmallModel smallmodel)
         {
             smallmodel.CurrentContentValue = 0;
+            Console.WriteLine("Small rainbarrel emptied");
             return true;
         }
 
         public bool emptyLargeRainBarrel(RainBarrelLargeModel largemodel)
         {
             largemodel.CurrentContentValue = 0;
+            Console.WriteLine("Large rainbarrel emptied");
             return true;
         }
 
         public bool FillBucket(BucketModel bucket)
         {
             bucket.CurrentContentValue = bucket.MaxCapacity;
+            Console.WriteLine("Bucket filled");
             return true;
         }
 
         public bool FillOilBarrel(OilBarrelModel oil)
         {
             oil.CurrentContentValue = oil.MaxCapacity;
+            Console.WriteLine("Oilbarrel filled");
             return true;
         }
 
         public bool FillMediumRainBarrel(RainBarrelMediumModel mediumbarrel)
         {
             mediumbarrel.CurrentContentValue = mediumbarrel.MaxCapacity;
+            Console.WriteLine("Medium rainbarrel filled");
             return true;
         }
 
-        public bool FillSmallMediumRainBarrel(RainbarrelSmallModel smallmodel)
+        public bool FillSmallRainBarrel(RainbarrelSmallModel smallmodel)
         {
             smallmodel.CurrentContentValue = smallmodel.MaxCapacity;
+            Console.WriteLine("Small rainbarrel filled");
             return true;
         }
 
         public bool FillLargeRainBarrel(RainBarrelLargeModel largemodel)
         {
             largemodel.CurrentContentValue = largemodel.MaxCapacity;
+            Console.WriteLine("Large rainbarrel filled");
             return true;
         }
 

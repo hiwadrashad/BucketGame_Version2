@@ -17,12 +17,12 @@ namespace Bucket_Opdracht_Version2.Interfaces
         public bool emptyBucket(BucketModel bucket);
         public bool emptyOilBarrel(OilBarrelModel oil);
         public bool emptyMediumRainBarrel(RainBarrelMediumModel mediumbarrel);
-        public bool emptySmallMediumRainBarrel(RainbarrelSmallModel smallmodel);
+        public bool emptySmallRainBarrel(RainbarrelSmallModel smallmodel);
         public bool emptyLargeRainBarrel(RainBarrelLargeModel largemodel);
         public bool FillBucket(BucketModel bucket);
         public bool FillOilBarrel(OilBarrelModel oil);
         public bool FillMediumRainBarrel(RainBarrelMediumModel mediumbarrel);
-        public bool FillSmallMediumRainBarrel(RainbarrelSmallModel smallmodel);
+        public bool FillSmallRainBarrel(RainbarrelSmallModel smallmodel);
         public bool FillLargeRainBarrel(RainBarrelLargeModel largemodel);
 #nullable enable
         public ContainerModel? chooseContainer();

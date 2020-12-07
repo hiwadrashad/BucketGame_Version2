@@ -22,8 +22,17 @@ namespace Bucket_Opdracht_Version2.EventHandlers
 
         public event ChooseDelegate ChooseEventHandler;
 
-        public RainBarrelLargeEventHandlers item = new RainBarrelLargeEventHandlers();
+        public RainBarrelLargeEventHandlers item;
 
+        public RainBarrelLargeEventHandlers(RainBarrelLargeEventHandlers initmodel)
+        {
+            item = initmodel;
+        }
+
+        public RainBarrelLargeEventHandlers()
+        {
+
+        }
         public void AddLargeBarrel()
         {
             var item2 = new TransformDelegate(_dataService.AddLargeRainBarrelToContainer);

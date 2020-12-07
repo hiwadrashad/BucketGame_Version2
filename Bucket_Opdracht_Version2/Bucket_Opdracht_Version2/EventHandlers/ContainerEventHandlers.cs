@@ -24,8 +24,17 @@ namespace Bucket_Opdracht_Version2.EventHandlers
 
         public event ChooseDelegate ChooseEventHandler;
 
-        public ContainerEventHandlers item = new ContainerEventHandlers();
+        public ContainerEventHandlers item;
 
+        public ContainerEventHandlers(ContainerEventHandlers initmodel)
+        {
+            item = initmodel;
+        }
+
+        public ContainerEventHandlers()
+        {
+
+        }
         public void AddContainer()
         {
             var item2 = new TransformDelegate(_dataService.AddContainer);
